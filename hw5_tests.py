@@ -115,7 +115,7 @@ def _write_token_file(path, tokens):
 def _tiny_stories_eval_tokens(start_token=0, num_tokens=48):
     path = os.path.join(os.path.dirname(__file__), "TinyStoriesV2-GPT4-train.txt")
     tokenizer = tiktoken.get_encoding("gpt2")
-    with open(path, "rt") as f:
+    with open(path, "rt", encoding = "utf-8") as f:
         text = f.read(4096)
     all_tokens = tokenizer.encode(text, allowed_special="all")
     tokens = all_tokens[start_token : start_token + num_tokens]
